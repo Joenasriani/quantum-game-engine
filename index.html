@@ -3,27 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Launcher</title>
+    <title>Platformer Game</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        #menu { display: flex; flex-direction: column; align-items: center; }
-        button { margin: 10px; padding: 10px; font-size: 16px; }
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <div id="menu">
-        <h1>Game Selection Menu</h1>
-        <button onclick="launchFlappyBird()">Play Flappy Bird</button>
-        <button onclick="launchPlatformer()">Play Platformer</button>
-    </div>
+    <canvas id="gameCanvas"></canvas>
     <script>
-        function launchFlappyBird() {
-            window.open('https://your-flappy-bird-url.com', '_blank');
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let player = { x: canvas.width/2, y: canvas.height/2, width: 50, height: 50, speed: 5 };
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+            requestAnimationFrame(gameLoop);
         }
 
-        function launchPlatformer() {
-            window.open('https://your-platformer-url.com', '_blank');
-        }
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowUp') player.y -= player.speed;
+            if (event.key === 'ArrowDown') player.y += player.speed;
+            if (event.key === 'ArrowLeft') player.x -= player.speed;
+            if (event.key === 'ArrowRight') player.x += player.speed;
+        });
+
+        gameLoop();
     </script>
 </body>
 </html>
