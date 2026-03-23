@@ -1,21 +1,50 @@
-class Engine {
+// Engine.ts
+
+// Importing required modules
+import { SceneManager } from './SceneManager';
+import { Physics } from './Physics';
+import { InputManager } from './InputManager';
+import { Camera } from './Camera';
+
+class GameEngine {
+    private sceneManager: SceneManager;
+    private physics: Physics;
+    private inputManager: InputManager;
+    private camera: Camera;
+    private lastTime: number;
+
     constructor() {
-        // Initialize game state
+        this.sceneManager = new SceneManager();
+        this.physics = new Physics();
+        this.inputManager = new InputManager();
+        this.camera = new Camera();
+        this.lastTime = performance.now();
     }
 
-    start() {
-        // Logic to start the game
+    public start(): void {
+        requestAnimationFrame(this.gameLoop.bind(this));
     }
 
-    update() {
-        // Logic for updating game state
-    }
+    private gameLoop(currentTime: number): void {
+        const deltaTime = (currentTime - this.lastTime) / 1000; // seconds
+        this.lastTime = currentTime;
 
-    render() {
-        // Logic for rendering the game
-    }
+        // Update input system
+        this.inputManager.update();
 
-    // Other game engine methods...
+        // Update physics
+        this.physics.update(deltaTime);
+
+        // Check collisions
+        this.physics.checkCollisions();
+
+        // Render the current scene
+        this.sceneManager.render(this.camera);
+
+        // Request the next frame
+        requestAnimationFrame(this.gameLoop.bind(this));
+    }
 }
 
-export default Engine;
+// Exporting the GameEngine class
+export default GameEngine;
