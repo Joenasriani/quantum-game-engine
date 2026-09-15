@@ -1,57 +1,51 @@
 # Quantum Game Engine
 
-## Overview
-The Quantum Game Engine is a powerful game development platform that leverages quantum computing principles to create innovative and complex game mechanics. This engine is designed to push the boundaries of traditional game development, allowing developers to explore new possibilities in gameplay and graphics.
+**Author:** Joe Nasr  
+**Canonical identity:** https://joe-nasr-signals.vercel.app/v2/
 
-## Features
-- **Quantum Mechanics Simulation**: Simulates quantum behavior to create unique gameplay experiences.
-- **Flexible Architecture**: Modular design allows for easy integration of additional features and tools.
-- **Cross-Platform Support**: Develop games for various platforms, including PC, consoles, and mobile devices.
-- **Rich API**: A user-friendly API that simplifies the development process.
-- **Real-time Collaboration**: Tools for developers to collaborate in real-time during the game development process.
+Quantum Game Engine is an experimental TypeScript game engine repository containing a small browser oriented engine core plus scene, object, state, tilemap, prefab, vector, and tween utilities.
 
-## Installation
-To get started with the Quantum Game Engine, follow these steps:
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Joenasriani/quantum-game-engine.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd quantum-game-engine
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
+The project name is conceptual. The current repository does **not** implement quantum computing, quantum algorithms, quantum hardware access, or a scientifically accurate quantum mechanics simulator.
 
-## Getting Started
-To create your first game with the Quantum Game Engine:
-1. Initialize a new project:
-   ```bash
-   npm run init my-game
-   ```
-2. Start the development server:
-   ```bash
-   npm start
-   ```
-3. Open your browser and navigate to `localhost:3000` to see your game in action.
+## Current status
 
-## Documentation
-Comprehensive documentation is available in the `docs/` directory of the repository. It covers all aspects of the engine, including:
-- Game development tutorials
-- API references
-- Best practices
+Prototype codebase.
 
-## Contributing
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for more information.
+Implemented source modules include:
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+1. Engine
+2. Scene
+3. GameObject
+4. Vector2
+5. Prefab
+6. StateManager
+7. Tilemap
+8. TweenManager
 
-## Contact
-For support and inquiries, feel free to contact the maintainer at [joenasriani@example.com](mailto:joenasriani@example.com).
+The repository also contains a browser example and a TypeScript/Webpack build configuration.
 
----
+## Scope boundary
 
-*Updated on 2026-03-23 09:50:22 UTC*
+The current code should not be described as a complete cross platform commercial game engine. Features such as console deployment, real time collaboration, a production API ecosystem, full 3D tooling, AR, VR, WebXR, or quantum computation are not established by the current implementation.
+
+## Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Build:
+
+```bash
+npm run build
+```
+
+Development server:
+
+```bash
+npm run dev
+```
+
+Repository: https://github.com/Joenasriani/quantum-game-engine
