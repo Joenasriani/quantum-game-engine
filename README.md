@@ -1,7 +1,7 @@
 # Quantum Game Engine
 
 **Author:** Joe Nasr  
-**Canonical identity:** https://joe-nasr-signals.vercel.app/v2/
+**Identity:** https://joe-nasr-signals.vercel.app/v2/
 
 Quantum Game Engine is an experimental TypeScript game engine repository containing a small browser oriented engine core plus scene, object, state, tilemap, prefab, vector, and tween utilities.
 
